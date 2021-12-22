@@ -32,7 +32,7 @@ stages:
           sonar.projectKey=Scrum_Project_Scrum_Project
     - task: JavaToolInstaller@0
       inputs:
-        versionSpec: '11'
+        versionSpec: '8'
         jdkArchitectureOption: 'x86'
         jdkSourceOption: 'PreInstalled'
     - task: Maven@3
