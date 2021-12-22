@@ -30,11 +30,6 @@ stages:
           # Put one key=value per line, example:
           # sonar.exclusions=**/*.bin
           sonar.projectKey=Scrum_Project_Scrum_Project
-    - task: JavaToolInstaller@0
-      inputs:
-        versionSpec: '8'
-        jdkArchitectureOption: 'x86'
-        jdkSourceOption: 'PreInstalled'
     - task: Maven@3
       inputs:
         mavenPomFile: 'pom.xml'
