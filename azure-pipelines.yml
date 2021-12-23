@@ -21,15 +21,7 @@ stages:
     pool:
       vmImage: $(vmImageName)
     steps:
-    - task: SonarQubePrepare@5
-      inputs:
-        SonarQube: 'sonarqube'
-        scannerMode: 'Other'
-        extraProperties: |
-          # Additional properties that will be passed to the scanner,
-          # Put one key=value per line, example:
-          # sonar.exclusions=**/*.bin
-          sonar.projectKey=Scrum_Project_Scrum_Project
+
     - task: Maven@3
       inputs:
         mavenPomFile: 'pom.xml'
@@ -47,6 +39,3 @@ stages:
         SourceFolder: '$(agent.builddirectory)'
         Contents: '**/.war'
         TargetFolder: '$(build.artifactstagingdirectory)'
-    - task: SonarQubePublish@5
-      inputs:
-        pollingTimeoutSec: '300'
