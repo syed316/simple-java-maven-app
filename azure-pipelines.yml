@@ -42,6 +42,11 @@ stages:
         sonarQubeRunAnalysis: true
         isJacocoCoverageReportXML: true
         sqMavenPluginVersionChoice: 'latest'
+    - task: CopyFiles@2
+      inputs:
+        SourceFolder: '$(agent.builddirectory)'
+        Contents: '**/.war'
+        TargetFolder: '$(build.artifactstagingdirectory)'
     - task: SonarQubePublish@5
       inputs:
         pollingTimeoutSec: '300'
